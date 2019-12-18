@@ -9,6 +9,13 @@ FROM employees
 WHERE FIRST_NAME = ('Irena')
  OR first_name = 'Vidya'
      OR first_name = 'Maya';
+# Add a condition to the previous query to find everybody with those names who is also male — 441 rows.
+SELECT first_name, last_name, gender
+FROM employees
+WHERE (first_name = 'Irena'
+    OR first_name = 'Vidya'
+    OR first_name = 'Maya')
+    AND gender = 'M';
 
 # Find all employees whose last name starts with 'E' — 7,330 rows.
 SELECT first_name, last_name
