@@ -45,7 +45,7 @@ SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name) AS full_name, s.salar
         ON d.dept_no = dm.dept_no
     JOIN salaries as s
         ON e.emp_no = s.emp_no
-    WHERE s.to_date = '9999-01-01' and dm.to_date = '9999-01-01'
+    WHERE s.to_date > now() and dm.to_date > now()
     GROUP BY dept_name, s.salary, CONCAT(e.first_name, ' ', e.last_name);
 
 # Find the names of all current employees, their department name, and their current manager's name.
@@ -59,5 +59,5 @@ SELECT CONCAT(e.first_name, ' ', e.last_name) AS Employee_Name, d.dept_name AS D
         ON dm.dept_no = d.dept_no
     JOIN employees as em
         ON em.emp_no = dm.emp_no
-    WHERE dm.to_date = '9999-01-01' AND de.to_date = '9999-01-01'
+    WHERE dm.to_date > now() AND de.to_date > now()
     ORDER BY d.dept_name;
