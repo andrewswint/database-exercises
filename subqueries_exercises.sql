@@ -64,7 +64,7 @@ SELECT CONCAT((SELECT MAX(salary)
                    ORDER BY emp_no
                    LIMIT 1
                )
-              ), ' ',
+               ), ' ',
     (SELECT MAX(salary)
      FROM salaries
      WHERE emp_no = (
@@ -74,6 +74,6 @@ SELECT CONCAT((SELECT MAX(salary)
          ORDER BY emp_no
          LIMIT 1 OFFSET 1
         )
-           )
     )
+);
 
