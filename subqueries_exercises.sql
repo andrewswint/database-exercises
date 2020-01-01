@@ -20,7 +20,7 @@ WHERE emp_no IN (
     WHERE first_name = 'Aamod'
 );
 
-# Find all the current department managers that are female.
+-- # Find all the current department managers that are female.
 SELECT first_name, last_name
 FROM employees
 WHERE emp_no IN (
@@ -30,7 +30,7 @@ WHERE emp_no IN (
       AND to_date > now()
 );
 
-# Find all the department names that currently have female managers.
+-- # Find all the department names that currently have female managers.
 SELECT dept_name
 FROM departments
 WHERE dept_no IN (
@@ -44,7 +44,7 @@ WHERE dept_no IN (
     )
 );
 
-# Find the first and last name of the employee with the highest salary.
+-- # Find the first and last name of the employee with the highest salary.
 SELECT first_name, last_name
 FROM employees
 WHERE emp_no = (
@@ -54,7 +54,7 @@ WHERE emp_no = (
     LIMIT 1
 );
 
-# Concat the max salaries of the first two employees
+-- # Concat the max salaries of the first two employees
 SELECT CONCAT((SELECT MAX(salary)
                FROM salaries
                WHERE emp_no = (
@@ -76,4 +76,5 @@ SELECT CONCAT((SELECT MAX(salary)
         )
     )
 );
+
 
