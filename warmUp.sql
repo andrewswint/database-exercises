@@ -1,4 +1,4 @@
-# CREATE DATABASE IF NOT EXISTS music_db;
+CREATE DATABASE IF NOT EXISTS music_db;
 USE music_db;
 CREATE TABLE songs (
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -11,10 +11,11 @@ PRIMARY KEY (id)
 );
 
 ALTER TABLE songs
-    MODIFY release_date VARCHAR(50),
-    MODIFY genre VARCHAR(1000);
+    MODIFY release_date DATE,
+    MODIFY genre VARCHAR(1000),
+    MODIFY song_length DECIMAL;
 
-
+TRUNCATE TABLE songs;
 INSERT INTO songs (artist, song_title, release_date, genre, song_length)
 VALUE('congue elementum', 'cubilia curae duis', '2014-06-04', 'cursus urna', 3.09),
 ('metus aenean', 'mi nulla ac', '2001-06-19', 'eget massa tempor convallis nulla neque libero', 3.78),
